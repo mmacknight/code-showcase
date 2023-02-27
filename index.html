@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mitch MacKnight Projects</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="header_left">
+          <img class="profile-img" src="assets/profile.jpg" alt="">
+          <h1 class="header_title">Mitch MacKnight</h1>
+        </nav>
+        <nav class="header_middle"></nav>
+        <nav class="header_right">
+          <ul>
+            <li><a class="link" href="#about">About</a></li>
+            <li><a class="link" href="#projects">Projects</a></li>
+            <li><a class="link" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+    </header>
+	<main id="main" class="main not-projects-page">
+	</main>
+	<footer>
+		<p>&copy; 2023 Mitch MacKnight</p>
+	</footer>
+</body>
+</html>
+
+<script>
+
+    let needToReplace = false;
+    function loadTwitter() {
+        // Create a new script tag
+        const script = document.createElement("script");
+        script.id = "twitter-script"
+        
+        // Set the src and charset attributes for the Twitter widgets.js script
+        script.src = "https://platform.twitter.com/widgets.js";
+        script.charset = "utf-8";
+        
+        // Add the script tag to the end of the body element
+        if (needToReplace) {
+            const oldScript = document.getElementById("twitter-script")
+            oldScript.parentNode.replaceChild(script,oldScript)
+        } else {
+            needToReplace = true;
+            document.body.appendChild(script);
+        }
+    }
+
+    const defaultPage = "projects";
+    const mainContent = {
+        about: `
+        <section class="fade-in">
+            <h1>ABOUT</h1>
+            <hr>
+            <p>
+                Welcome to my personal code portfolio. Here I showcase a selection of my personal and academic projects. These projects reflect my interests, creative abilities, and skills in various technologies.
+            </p>
+            <p>
+                My passion is building software that brings people together in meaningful ways. I believe in creating socially interactive products that are not only enjoyable, but also help to build communities and foster relationships between people. The technologies that I develop are intended to be used and enjoyed by people and relate to topics of interest to me.
+            </p>
+            <p>
+                On this site, you'll find detailed information about each project, including its current state and links to its codebase. Additionally, I'll keep you informed about the new features that are coming to each project in the future. Whether you're here to explore my work or collaborate on a project, I hope you'll find something that interests you.
+            </p>
+            <div class="svg-container">
+                <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/python.svg" alt="Python" >
+                </a>
+                <a href="https://developer.twitter.com/en" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/twitter.svg" alt="Twitter">
+                </a>
+                <a href="https://docs.sleeper.com/" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/sleeper.jpg" alt="Sleeper">
+                </a>
+                <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/aws.svg" alt="AWS">
+                </a>
+                <a href="https://angular.io/" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/angular.svg" alt="Angular">
+                </a>
+                <a href="https://ionicframework.com/" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/ionic-logo.svg" alt="Ionic">
+                </a>
+                <a href="https://nodejs.org/en/" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/nodejs.svg" alt="Node.js">
+                </a>
+                <a href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/mysql.svg" alt="MySQL">
+                </a>
+			</div>
+        </section>
+        `,
+        contact: `
+        <section class="fade-in">
+            <h1>CONTACT</h1>
+            <hr>
+            <div class="contact-container">
+                <a href="https://github.com/mmacknight" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/github.svg" alt="Github">
+                    <h3>mmacknight</h3>
+                </a>
+                <a href="https://www.linkedin.com/in/mitchell-macknight-02082014a" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/linkedin.svg" alt="Linkedin">
+                    <h3>mitchell-macknight</h3>
+                </a>
+                <a href="mailto:mmacknig@alumni.nd.edu" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/mail.svg" alt="Email">
+                    <h3>mmacknig@alumni.nd.edu</h3>
+                </a>
+            </div>
+        </section>
+        `,
+        projects: `
+		<section class="project fade-in">
+			<h2>Fantasy Football Twitter Bot Reporter</h2>
+			<h3>2022</h3>
+            <div class="svg-container">
+                <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/python.svg" alt="Python" >
+                </a>
+                <a href="https://developer.twitter.com/en" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/twitter.svg" alt="Twitter">
+                </a>
+                <a href="https://docs.sleeper.com/" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/sleeper.jpg" alt="Sleeper">
+                </a>
+                <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/aws.svg" alt="AWS">
+                </a>
+			</div>
+			<p>A Twitter bot simulating a "league insider" reporting on your fantasy football league. Leaked rumors, player signings, trades, and waiver claims from your league live on Twitter 24/7.</p>
+			<a href="#insider-bots" class="link button">View Project</a>
+		</section>
+		<section class="project fade-in">
+			<h2>College Football PICK6</h2>
+			<h3>2019-2022</h3>
+            <div class="svg-container">
+                <a href="https://angular.io/" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/angular.svg" alt="Angular">
+                </a>
+                <a href="https://ionicframework.com/" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/ionic-logo.svg" alt="Ionic">
+                </a>
+                <a href="https://nodejs.org/en/" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/nodejs.svg" alt="Node.js">
+                </a>
+                <a href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/mysql.svg" alt="MySQL">
+                </a>
+                <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/aws.svg" alt="AWS">
+                </a>
+			</div>
+			<p>An original fantasy sports game for fans of college football. Create a league with up to 20 friends and compete to see whose six team squad will win the most games.</p>
+			<a href="#cfb-pick6" class="link button">View Project</a>
+		</section>
+        `,
+        insider_bots: `
+        <section class="fade-in">
+            <h1>Fantasy Football Twitter Bot Reporter</h1>
+            <hr>
+            <a class="github-tag" href="https://github.com/mmacknight/insider-bots" target="_blank" rel="noopener noreferrer">
+                <img class="svg" src="assets/github.svg" alt="Github">
+                <h3>insider-bots</h3>
+            </a>
+            <h3>Overview</h3>
+            <p>
+                Insider Bots is a Python project that reports rumors and transactions related to a fantasy football league using Twitter and Sleeper APIs. The project allows users to submit rumors to a Twitter account via Direct Messages, which are then automatically reported on the same account. The project also uses Sleeper APIs to report on various transactions, including player signings, trades, and waiver claims.
+            </p>
+            <h3>Stack</h3>
+            <p>
+                <div class="svg-container">
+                <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/python.svg" alt="Python" >
+                </a>
+                <a href="https://developer.twitter.com/en" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/twitter.svg" alt="Twitter">
+                </a>
+                <a href="https://docs.sleeper.com/" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/sleeper.jpg" alt="Sleeper">
+                </a>
+                <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer">
+                    <img class="svg" src="assets/aws.svg" alt="AWS">
+                </a>
+			</div>
+            </p>
+        </section>
+        <section class="fade-in">
+            <h1>Set Up</h1>
+            <hr>
+            <h3>1. Create a Developer Twitter Account</h3>
+            <p>
+                You will need at least two Twitter accounts to successfully use this project. First sign up for a main account on Twitter which will serve as the overarching account to manage all reporter bots you create.
+            </p>
+            <img class="demo-img" src="assets/create-managing-account.png" alt="Managing Account">
+            <p>
+                Then add developer access at <a href="https://developer.twitter.com/" target="_blank" rel="noopener noreferrer">https://developer.twitter.com/</a>. Find the consumer key and consumer secret and include them in your <b>.env</b> file as shown in the README in the <a href="https://github.com/mmacknight/insider-bots" target="_blank" rel="noopener noreferrer">github repository</a>.
+            </p>
+            <h3>2. Create a Bot Account</h3>
+            <p>
+                Next sign up for a bot account that will report on a specific leaguge. Turn on settings to receive DMs from everyone. You can make the account private and manually accept follow requests if you want to limit who can submit rumors to the bot. Also, list the managing account under "Your Account" -> "Automation" in Settings to ensure you are compliant with <a href="https://help.twitter.com/en/using-twitter/automated-account-labels" target="_blank" rel="noopener noreferrer">Twitter Policy on automation</a>.
+            </p>
+            <img class="demo-img" src="assets/create-bot-account.png" alt="Bot Account">
+            <img class="demo-img" src="assets/dm-settings.png" alt="DM Settings">
+            <img class="demo-img" src="assets/list-managing-account.png" alt="List Managing Account">
+            <h3>3. Generate Bot Access Token and Secret</h3>
+            <p>
+                Run the <b>auth.py</b> script which will generate an authorization URL. Click the authorization URL printed in the command window, login with the bot account, and grant the dev account access to tweet from the bot account. A PIN will be generated which you can then enter back in the command window where you ran <b>auth.py</b>.
+            </p>
+                <img class="demo-img" src="assets/authorization.png" alt="Authorization">
+            <p>
+                The access token and secret for the bot account will be logged to the command line. Store these in the <b>.env</b> file as well.
+            </p>
+            <h3>4. Add Remaining Environment Variables</h3>
+            <p>
+                Add the remaining environemnt variables including the Sleeper league ID.
+            </p>
+            <h3>5. Run the <b>main.py</b> Script</h3>
+            <p>
+                Run the <b>main.py</b> script and your bot reporter is now live!
+            </p>
+        </section>
+        <section class="fade-in">
+            <h1>Demo</h1>
+            <hr>
+            <h3>Transactions</h3>
+            <p>
+                Once the bot is running, any transactions in your league will be reported on via a Tweet. For example, dropping a player from your roster will trigger the bot to Tweet the transaction: 
+            </p>
+            <img class="demo-img" src="assets/drop-player.png" alt="Drop Player">
+            <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Demo Team has released DAL RB Ezekiel Elliott.</p>&mdash; Demo Reporter (@demo_reporter) <a href="https://twitter.com/demo_reporter/status/1629610559673970691?ref_src=twsrc%5Etfw">February 25, 2023</a></blockquote>
+            <p>
+                Similarly, adding a player will cause the bot to report the roster change:
+            </p>
+            <img class="demo-img" src="assets/add-player.png" alt="Add Player">
+            <p>
+                <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Demo Team has signed SF RB Christian McCaffrey.</p>&mdash; Demo Reporter (@demo_reporter) <a href="https://twitter.com/demo_reporter/status/1629610560516943877?ref_src=twsrc%5Etfw">February 25, 2023</a></blockquote>
+            </p>
+            <img class="demo-img" src="assets/add-drop-player.png" alt="Add & Drop Player">
+            <p>
+                <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Demo Team has signed CIN QB Joe Burrow and released BUF QB Josh Allen.</p>&mdash; Demo Reporter (@demo_reporter) <a href="https://twitter.com/demo_reporter/status/1629610561309749253?ref_src=twsrc%5Etfw">February 25, 2023</a></blockquote>
+            </p>
+            <p>
+                In addition, the bot will also Tweet about trades and waiver claims that happen:
+            </p>
+            <img class="demo-img" src="assets/trade-player.png" alt="Trade Player">
+            <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Trade Alert!<br>Demo Team 2 will receive SF WR Brandon Aiyuk.<br>Demo Team will receive TEN RB Derrick Henry.</p>&mdash; Demo Reporter (@demo_reporter) <a href="https://twitter.com/demo_reporter/status/1626113376316186626?ref_src=twsrc%5Etfw">February 16, 2023</a></blockquote>
+            <h3>Rumors</h3>
+            <p>
+                A feature of the bot that especially drives player engagement and interactivity is leaking rumors. Players who follow the bot can send a Direct Message to the bot with the format "RUMOR [insert rumor]" and the bot will Tweet the rumor as an anonymous leak, similar to how a real NFL insider might report on an unnamed source.
+            </p>
+            <img class="demo-img" src="assets/dm.png" alt="Direct Message">
+            <blockquote class="twitter-tweet"><p lang="en" dir="ltr">An anonymous source has told me &quot;someone is looking to trade for a quarterback&quot;</p>&mdash; Demo Reporter (@demo_reporter) <a href="https://twitter.com/demo_reporter/status/1626115424113811458?ref_src=twsrc%5Etfw">February 16, 2023</a></blockquote>
+            <blockquote class="twitter-tweet"><p lang="en" dir="ltr">An anonymous source has told me &quot;someone is looking to trade for a running back&quot;</p>&mdash; Demo Reporter (@demo_reporter) <a href="https://twitter.com/demo_reporter/status/1626241343268995074?ref_src=twsrc%5Etfw">February 16, 2023</a></blockquote>
+        </section>
+        <section class="fade-in">
+            <h1>What's next?</h1>
+            <hr>
+            <h3>Streamlined Integration and Launch for Multiple Leagues (Coming Soon?)</h3>
+            <p>
+                My eventual goal is to make it so that league commissioners can set up a bot reporter for a league with minimal technical expertise and without having to run a separate instance of the project. I want to create a basic webpage where a user can input their sleeper league ID into a form and authorize a Twitter bot account created and managed by the user. After, submitting the league ID and authorizing the user managed Twitter account, the league would have their own full-time insider in a matter of minutes.
+            </p>
+            <h3>Varied Tone and Tweet Structure using AI (Coming Soon?)</h3>
+            <p>
+                Currently, the Twitter bot tweets using a pre-written template and fixed phrasing for each transaction and rumor. However, I would like to improve the bot's personality and tone in the future by leveraging AI language models like ChatGPT. With the help of these models, I can generate unique phrasing for each tweet and transaction, making the bot's tweets more interesting and engaging.
+            </p>
+            <p> 
+                Additionally, I could use AI language models to add personality to the bot, tailoring its tone to the preferences of each league. For example, different leagues may prefer a bot that is analytical, bombastic, highly complimentary, or highly critical. With the help of AI language models, I can customize the bot's personality to better match the preferences of each league, enhancing the user experience and making the bot more enjoyable to follow.
+            </p>
+            <h3>Live Updates and Analysis based on league results (Coming Soon?)</h3>
+            <p>
+                Sleeper has API's that provide real-time results and win probabilities for every matchup. Using these metrics, I would like to add functionality to the bot to provide updates periodically during games and commentary on particularly impressive or disappointing performances as well as predictions for matchup results and playoff seeding.
+            </p>
+            <h3>Support for Other Fantasy Football Platforms (Down The Line)</h3>
+            <p>
+                Sleeper provides several easy-to-use read-only APIs that reduced the complexity in getting this project running in its current state. In the future, I would like to add support for ESPN Fantasy Football and Yahoo Fantasy Football which both also have a set of publicly available APIs.  
+            </p>
+        </section>
+
+        <section class="fade-in">
+            <h1>Live Feed from @demo_reporter</h1>
+            <hr>
+            <div class="timeline-container">
+                <h3 class="timeline-header">
+                    <img class="svg" src="assets/twitter-white.svg" alt="Twitter">
+                </h3>
+                <a class="twitter-timeline" data-height="600" href="https://twitter.com/demo_reporter?ref_src=twsrc%5Etfw">Tweets by demo_reporter</a>
+            </div>
+        </section>
+        `,
+        cfb_pick6: `
+        <section class="fade-in">
+            <h1>College Football PICK6</h1>
+            <hr>
+            <a class="github-tag" href="https://github.com/mmacknight/cfb-pick6-2020" target="_blank" rel="noopener noreferrer">
+                <img class="svg" src="assets/github.svg" alt="Github">
+                <h3>cfb-pick6-2020</h3>
+            </a>
+            <h3>Overview</h3>
+            <p>
+                College Football PICK6 (aka CFB PICK6) is a college football fantasy game that I launched in 2019. The game provides a fun and engaging way for college football fans to compete with their friends and showcase their knowledge of the sport. The game starts with a six round snake draft in which users take turns selecting FBS college football teams. League members then follow the league standings to see whose six-team squad will accumulate the most wins over the course of the season.
+            </p>
+            <p>
+                This project represents the largest time investment of any of my personal projects and has served as an opportunity to learn and practice new technologies. The app stack has evolved over the years leveraging frontend technologies including Angular, Ionic, and React Native and both SQL and NoSQL databases. 
+            </p>
+            <p>
+                This page will focus on the application and codebase used for the 2020 season. The 2020 version of the game introduced several new features including a live draft lobby and custom league icons as well as original humorous and analytical weekly content relating to college football posted to the site and promoted on social media. The 2020 codebase added Ionic to the Angular frontend stack in order to provide an enhanced experience on mobile devices. In addition, a greatly expanded Node.js Express application hosted over 50 APIs to support the new functionality. Finally, the data was migrated from MongoDB to a MySQL relational database with improved schema for performance supporting 60+ users. The app was hosted with AWS.</p>
+            </p>
+            <h3>Stack</h3>
+            <p>
+                <div class="svg-container">
+                    <a href="https://angular.io/" target="_blank" rel="noopener noreferrer">
+                        <img class="svg" src="assets/angular.svg" alt="Angular">
+                    </a>
+                    <a href="https://ionicframework.com/" target="_blank" rel="noopener noreferrer">
+                        <img class="svg" src="assets/ionic-logo.svg" alt="Ionic">
+                    </a>
+                    <a href="https://nodejs.org/en/" target="_blank" rel="noopener noreferrer">
+                        <img class="svg" src="assets/nodejs.svg" alt="Node.js">
+                    </a>
+                    <a href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer">
+                        <img class="svg" src="assets/mysql.svg" alt="MySQL">
+                    </a>
+                    <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer">
+                        <img class="svg" src="assets/aws.svg" alt="AWS">
+                    </a>
+                </div>
+            </p>
+        </section>
+        <section class="fade-in">
+            <h1>DEMO</h1>
+            <hr>
+            <h3>App Walkthrough Video (Mobile View)</h3>
+            <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/nu1_6L4xLrQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+            <h3>How To Create a League (Step-By-Step)</h3>
+
+            <p>1. Create an account by accessing the profile icon. Click on the "Register" tab and enter required information.</p>
+            <img class="demo-img" src="assets/landing-page.png">
+
+            <img class="demo-img" src="assets/sign-up.png">
+            <p>2. To create a league, use the "My Leagues" tab and click on "Create New League." Fill out a clever league name and description.</p>
+            <img class="demo-img" src="assets/create-league-button.png">
+            <img class="demo-img" src="assets/create-league-form.png">
+            <p>3. Invite users by through the settings tab. Once there, search usernames in the "Invites" search box.</p>
+            <img class="demo-img" src="assets/league-home.png">
+            <img class="demo-img" src="assets/invites.png">
+            <p>4. Check invite status under "Squads" on the league homepage. When everyone has accepted and is ready to draft, select "Create Draft" under settings. Users can accept league invites under the profile tab. Feel Free to add a league icon by clicking the gear icon and uploading an image.</p>
+            <img class="demo-img" src="assets/invite-status.png">
+            <img class="demo-img" src="assets/create-draft-button.png">
+            <img class="demo-img" src="assets/league-icon.png">
+            <p>5. Enter the draft lobby and choose your squad wisely. Once the draft is complete, you and your six are ready to compete for the crown!</p>
+            <img class="demo-img" src="assets/draft-lobby.png">
+            <p>6. Keep up with your teams during the season on your league page.</p>
+            <img class="demo-img" src="assets/follow-league.png">
+
+        </section>
+        <section class="fade-in">
+            <h1>What's Next?</h1>
+            <hr>
+            <h3>More Complex and Engaging Gameplay</h3>
+            <p>
+                In my four seasons of experience managing the game, the height of excitement is right at the beginning of the season during the draft which represents a fun, social event to kick-off the return of college football. However, once the draft is complete, the current game version offers no means for players to impact their chances of winning. Several players have expressed a desire for features such as trades, adds, and drops. I have been exploring how these options would impact gameplay and am considering the implementation of an in-season strategy to enhance player engagement and interaction.
+            </p>
+            <h3>Geographic Gameboard</h3>
+            <p>
+                The unique influence of geography on college football is a signature aspect of the sport. From the regional recruiting pools to conference alignments and rivalries, the local flavors of each region and town across the country contribute to the rich tapestry of gameday atmospheres at schools nationwide, which truly make the sport great.
+            </p>
+            <p>
+                Inspired by this distinctive characteristic of college football, I have been working on version of the CFB PICK6 game with a United States gameboard where players compete to capture territories by winning football game, similar to territorial conquest games such as "Risk." I believe that this new feature has the potential to increase strategy and enhance player engagement in a way that truly captures the unique role of geography in college football.
+            </p>
+            <p>
+                Below I have included a possible format for the gameboard in which schools compete for territories across the United States defined by Congressional Districts:
+            </p>
+            <img class="demo-img" src="assets/map.png">
+            <p>
+                This map was generated using <a href="https://www.amcharts.com/docs/v5/tutorials/using-regional-maps/" target="_blank" rel="noopener noreferrer">AMCharts 5</a>.
+            </p>
+        </section>
+        `
+    
+    }
+    window.addEventListener('load', function() {
+        handleRoute(window.location.hash)
+    });
+
+    function handleRoute(route) {
+        const main = document.getElementById('main');
+        main.classList.remove('show')
+        main.classList.add('not-projects-page')
+        switch (route) {
+            case "#about":
+                main.innerHTML = mainContent['about']
+                break;
+            case "#contact":
+                main.innerHTML = mainContent['contact']
+                break;
+            case "#projects":
+                main.innerHTML = mainContent['projects']
+                main.classList.remove('not-projects-page')
+                break;
+            case "#insider-bots":
+                main.innerHTML = mainContent['insider_bots']
+                loadTwitter();
+                break;
+            case "#cfb-pick6":
+                main.innerHTML = mainContent['cfb_pick6']
+                loadTwitter();
+                break;
+            default:
+                main.innerHTML = mainContent[defaultPage]
+                if (defaultPage == "projects") {
+                    main.classList.remove('not-projects-page')
+                }
+                break
+        }
+
+        requestAnimationFrame(function() {
+            main.classList.add('show')
+        });
+        console.log("Route changed to: " + route);
+    }
+
+    window.onpopstate = function(event) {
+        handleRoute(event.currentTarget.location.hash);
+    };
+
+    function changeRoute(route) {
+        handleRoute(route);
+        window.history.pushState({ route: route }, null, route);
+    }
+
+</script>
