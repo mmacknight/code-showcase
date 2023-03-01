@@ -12,4 +12,4 @@ On this site, you'll find detailed information about each project, including its
 
 Thank you for visiting my project showcase! If you have any questions or would like to discuss a project, please don't hesitate to contact me.
 
-Visit the showcase at https://mmacknight.github.io/code-showcase/(url).
+Visit the showcase at https://mmacknight.github.io/code-showcase/.
